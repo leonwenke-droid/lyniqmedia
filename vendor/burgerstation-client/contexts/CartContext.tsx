@@ -4,9 +4,13 @@ import { usePortfolioPreview } from "@burgerstation/contexts/PortfolioPreviewCon
 
 // Stable session ID for analytics (not tied to auth — just identifies this browser tab)
 function getSessionId(): string {
+  if (typeof window === "undefined") return "";
   const key = "bs_session_id";
   let id = sessionStorage.getItem(key);
-  if (!id) { id = Math.random().toString(36).slice(2, 10); sessionStorage.setItem(key, id); }
+  if (!id) {
+    id = Math.random().toString(36).slice(2, 10);
+    sessionStorage.setItem(key, id);
+  }
   return id;
 }
 
@@ -49,8 +53,14 @@ export function CartProvider({
 }) {
   const [items, setItems] = useState<CartItem[]>(initialItems);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const sessionId = useRef(getSessionId());
+  const sessionId = useRef("");
   const preview = usePortfolioPreview();
+
+  useEffect(() => {
+    if (!sessionId.current) {
+      sessionId.current = getSessionId();
+    }
+  }, []);
 
   function addItem(item: Omit<CartItem, "quantity">) {
     setItems((prev) => {

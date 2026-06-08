@@ -252,7 +252,11 @@ function OrderRow({ order }: { order: OrderRecord }) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 export default function AdminSettings() {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem("bs_admin_auth") === "1");
+  const [authed, setAuthed] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("bs_admin_auth") === "1",
+  );
   const [data,   setData]   = useState<Snapshot | null>(null);
   const [filter, setFilter] = useState<"ALL" | "PAID" | "OPEN">("ALL");
   const [search, setSearch] = useState("");
