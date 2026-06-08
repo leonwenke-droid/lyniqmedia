@@ -1,0 +1,57 @@
+---
+title: "Wie KI-Automatisierung einem Imbiss in Ostfriesland 30% Provision spart"
+description: "Warum Lieferando für kleine Gastronomiebetriebe ein strukturelles Problem ist — und wie ein KI-gestütztes Bestellsystem das löst."
+date: "2026-06-08"
+author: "Leon Wenke"
+tags: ["KI", "Gastronomie", "Automatisierung", "Ostfriesland"]
+category: "Case Study"
+published: true
+---
+
+Ein Imbiss in Ostfriesland mit stabilem Stammgeschäft, kurzen Öffnungszeiten und einem Team, das neben Küche und Theke kaum Luft für Digitalprojekte hat — dieses Bild kenne ich aus mehreren Gesprächen vor Ort. Viele Betriebe sind auf Lieferando angewiesen, weil die Plattform Reichweite bringt. Was auf der Rechnung landet, ist oft eine **Provision von rund 30 Prozent** pro Bestellung. Bei einem Monatsumsatz von 8.000 Euro über die Plattform sind das 2.400 Euro — jeden Monat, wiederkehrend.
+
+## Das Lieferando-Problem in Zahlen
+
+Für einen kleinen Imbiss ist das kein „Marketingbudget“. Es ist eine dauerhafte Marge, die an einen Drittanbieter fließt — obwohl Stammkunden den Laden oft schon kennen und nur aus Gewohnheit über die App bestellen.
+
+> Wer jeden Monat fast ein Drittel des Umsatzes abgibt, finanziert mit jeder Bestellung die Infrastruktur eines Konkurrenten — statt in eigenes Equipment, Personal oder Qualität zu investieren.
+
+Dazu kommen weiche Faktoren: Telefon klingelt während des Rushs, WhatsApp-Nachrichten gehen unter, Sonderwünsche landen auf Zetteln. Fehler passieren. Gäste warten. Und trotzdem zahlt der Betrieb volle Provision, wenn die Bestellung über die Plattform läuft.
+
+## Was ein eigenes Bestellsystem leistet
+
+Ein eigenes System muss nicht fancy sein. Es muss **zuverlässig** sein: Speisekarte, Warenkorb, Bezahlung, Bestätigung — fertig. Optional ein KI-Chat, der Öffnungszeiten, Allergene und Liefergebiete beantwortet, wenn niemand ans Telefon geht.
+
+### Die drei Bausteine
+
+1. **Eigene Bestell-Website** — mobil optimiert, ohne App-Zwang, mit klarer Speisekarte und Checkout.
+2. **Automatische Bestellbestätigung** — E-Mail oder SMS, damit Küche und Gast sofort Klarheit haben.
+3. **KI-gestützter Vorfilter** — wiederkehrende Fragen werden automatisch beantwortet; echte Bestellungen landen strukturiert im System.
+
+Technisch sieht ein einfacher Webhook-Aufruf nach einer Bestellung so aus:
+
+```ts
+await fetch("https://api.dein-imbiss.de/orders", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    items: [{ sku: "burger-classic", qty: 2 }],
+    channel: "website",
+    totalCents: 1890,
+  }),
+});
+```
+
+Kein Hexenwerk — aber der Unterschied zwischen „Zettel an der Theke“ und einem System, das Bestellungen **nachvollziehbar** macht.
+
+## Einmalige Kosten vs. monatliche Provision
+
+Rechnen wir konservativ: 2.400 Euro Provision pro Monat entsprechen **28.800 Euro im Jahr**. Ein maßgeschneidertes Bestellsystem für einen Imbiss liegt — je nach Umfang — eher im niedrigen bis mittleren vierstelligen Bereich einmalig, plus überschaubare Hosting-Kosten.
+
+Das heißt nicht, dass Lieferando komplett weg muss. Viele Betriebe nutzen die Plattform weiter für Neukunden — aber lenken Stammgäste aktiv auf die eigene Lösung. Schon eine Verschiebung von 30–40 Prozent des Plattform-Umsatzes auf den eigenen Kanal spart schnell vierstellige Beträge pro Jahr.
+
+## Warum das für Ostfriesland relevant ist
+
+Hier sind die Wege kurz, die Kundenbeziehungen persönlich — und trotzdem bestellen viele über Apps, weil es bequem ist. Wer **eigene Digitalisierung** ernst nimmt, gewinnt Kontrolle zurück: über Preise, über Daten, über das Gästeerlebnis. KI ist dabei kein Buzzword, sondern praktisch: weniger Unterbrechungen am Telefon, weniger Fehler, mehr Zeit für das, was in der Küche passiert.
+
+Der Imbiss aus dem Titel ist kein Einzelfall. Es ist ein Muster: kleiner Betrieb, große Plattform, strukturelle Kosten. Ein eigenes System mit klarer Automatisierung ist oft die ehrlichere Rechnung — nicht weniger Arbeit am Anfang, aber **deutlich weniger Abgabe** jeden Monat danach.

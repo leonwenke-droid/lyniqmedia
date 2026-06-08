@@ -1,0 +1,192 @@
+# LYNIQ
+
+> Individuelle KI-Software, digitale Produkte und Automatisierungslösungen
+> für kleine und mittelständische Unternehmen in Deutschland.
+
+## Unternehmen
+- Name: LYNIQ (früher: LYNIQ Media)
+- Gründer: Leon Wenke, 19, Solo-Founder und Entwickler
+- Adresse: Alte Poststraße 17a, 26835 Holtland, Ostfriesland, Deutschland
+- Kontakt: info@lyniqmedia.com
+- Website: https://lyniqmedia.com
+- Telefon: +49 (0) 1517 5007219
+
+## Positionierung / Manifesto
+- Kein Agentur-Overhead: Du arbeitest direkt mit dem Entwickler. Kein
+  Account-Manager, kein Delegieren, keine Überraschungen.
+- MVP in einer Woche: Nicht als Versprechen — als Standard. 3–5× schneller
+  als klassische Agenturen, ohne Qualitätsverlust.
+- Regional verankert: Leer, Ostfriesland. Gebaut für Unternehmen die Leon
+  kennt, in einer Region die er versteht.
+- KI ist Werkzeug, kein Buzzword: Dort eingesetzt wo sie echten Nutzen
+  bringt — nicht als Verkaufsargument.
+- KMU stecken zwischen zwei schlechten Optionen: teure Agenturen die Monate
+  brauchen, oder generische No-Code-Tools die nicht passen. LYNIQ schließt
+  diese Lücke. Individuelle Lösung, in einer Woche geliefert, zu einem Preis
+  der für ein mittelständisches Unternehmen Sinn macht.
+
+## Über Leon Wenke
+Leon Wenke, 19, Gründer und KI-Softwareentwickler aus Holtland/Leer,
+Ostfriesland. Solo-Founder — kein Team, kein Outsourcing. Jeder Kunde
+arbeitet direkt mit Leon. Vom ersten Gespräch bis zum Launch persönlich
+dabei. MVP in einer Woche ist kein Versprechen — es ist der nachgewiesene
+Standard.
+
+## Leistungen
+
+### 001 — KI-Software
+Individuelle Softwarelösungen die mit KI denken — Analyse-Tools, intelligente
+Dashboards, automatisierte Systeme. Gebaut für echte Geschäftsprobleme,
+nicht für Demos.
+
+### 002 — Web & Digitale Produkte
+Von der Unternehmenswebsite bis zum komplexen Bestellsystem, Buchungsplattform
+oder SaaS-Produkt. Alles was ein Unternehmen digital braucht — schnell,
+sauber, skalierbar.
+
+### 003 — Automatisierung
+Prozesse die sich selbst erledigen. Workflows, Systemintegrationen,
+automatisierte Kommunikation — damit das Team sich auf das Wesentliche
+konzentriert. Auch: Voice Agents, WhatsApp-Automatisierung.
+
+### 004 — MVPs & Prototypen
+Idee zu Produkt in einer Woche. Ob Prototyp, MVP oder vollständige Plattform
+— schnell validiert, DSGVO-konform, von Anfang an skalierbar gebaut.
+
+## Preise
+
+### Paket 001 — Website
+- Preis: ab 799€
+- Inhalt: Unternehmenswebsite, Speisekarte, Kontaktformular, mobile-optimiert
+- Optional: 49€/Monat Wartung & Hosting
+
+### Paket 002 — MVP (empfohlen)
+- Preis: ab 1.500€
+- Inhalt: Funktionierendes digitales Produkt in einer Woche. Bestellsystem,
+  Buchungsplattform, Dashboard, einfaches SaaS.
+
+### Paket 003 — KI-Integration
+- Preis: ab 1.200€ + ab 99€/Monat laufend
+- Inhalt: KI-Layer für bestehende Prozesse oder neue Produkte. Chatbot,
+  Voice Agent, Datenanalyse, Automatisierung.
+
+Alle Preise zzgl. MwSt. Festpreise nach erstem Gespräch. Keine versteckten
+Kosten. Als Kleinunternehmer (§19 UStG) wird keine Umsatzsteuer ausgewiesen.
+
+## Prozess (4 Schritte)
+
+### Schritt 1 — Kostenloses Erstgespräch
+30 Minuten. Leon versteht das Problem, der Kunde versteht wie er arbeitet.
+Kein Pitch, kein Druck — nur ein ehrliches Gespräch.
+
+### Schritt 2 — Festpreisangebot in 24h
+Innerhalb von 24 Stunden gibt es ein konkretes Angebot. Scope, Zeitplan,
+Preis — alles schriftlich. Keine Überraschungen.
+
+### Schritt 3 — Entwicklung & täglicher Fortschritt
+Leon baut. Der Kunde sieht täglich Fortschritt. Kein wochenlanger
+Funkstille-Prozess. MVP-Standard: unter einer Woche.
+
+### Schritt 4 — Launch & Übergabe
+Deployment, vollständige Dokumentation, persönliche Einweisung. Der Kunde
+ist nie abhängig — alles gehört ihm.
+
+## Fakten & Versprechen
+- MVP-Lieferzeit: unter einer Woche (3–5× schneller als klassische Agenturen)
+- DSGVO-konform: Server in Deutschland (Frankfurt), AVV mit allen KI-Diensten
+- Zielgruppe: KMU in Deutschland, besonders Gastronomie und Handwerk
+- Hosting: Vercel (Frankfurt), Supabase (Frankfurt)
+- Tech-Stack: Next.js, React, TypeScript, Supabase, Framer Motion, Vercel
+- Kein Outsourcing, kein Delegieren, kein Overhead
+- Erstgespräch kostenlos, Festpreis danach
+
+## Projekte / Referenzen
+
+### OrgFlow (live unter orgflow.de)
+SaaS-Plattform für Vereins- und Teamorganisation. Aufgaben, Schichten,
+Mitglieder, Finanzen und Veranstaltungen in einem Tool. Für Vereine,
+Schulen, NGOs und Unternehmen. Gebaut mit Next.js, Supabase, Stripe.
+Live in Betrieb mit aktivem Nutzerstamm. Im ersten Monat nach Einführung
+im eigenen Abitur-Jahrgang wurden bis zu 3.000€ zusätzliche Einnahmen
+generiert — direkt durch erhöhte Beteiligung an Schichten und Events.
+
+### Burgerstation Leer (in Entwicklung)
+Restaurant-Website mit animierter digitaler Speisekarte, eigenem
+Online-Bestellsystem und direkter SumUp-Kassenintegration. Gäste können
+online bestellen und bezahlen, der Betrieb erhält Bestellungen direkt im
+Kassensystem — ohne Lieferando-Provisionen (bis zu 30%). Gebaut mit
+React 19, Vite, Tailwind v4, SumUp.
+
+### Abitur-Lernplattformen (live)
+Interaktive Lernplattformen für das niedersächsische Abitur (Physik,
+Informatik, Politik). Live und aktiv genutzt von Abitur-Jahrgängen in
+Niedersachsen über mehrere Schuljahre. Gebaut mit Next.js, Supabase, Vercel.
+Jede Plattform trägt „Powered by LYNIQ".
+
+## Häufige Fragen (FAQ)
+
+F: Was kostet eine individuelle KI-Softwarelösung?
+A: Einfache MVPs starten ab ca. 1.500€, komplexere Systeme auf Anfrage.
+   Transparente Festpreise nach dem ersten kostenlosen Gespräch — keine
+   versteckten Kosten.
+
+F: Wie datenschutzkonform sind die KI-Lösungen?
+A: Alle Lösungen werden DSGVO-orientiert umgesetzt. Für KI-Dienste bestehen
+   AVV und Standardvertragsklauseln; je nach Anbieter kann Verarbeitung über
+   verbundene Unternehmen außerhalb der EU erfolgen.
+
+F: Wie schnell kann ein MVP entwickelt werden?
+A: In der Regel unter einer Woche — das ist 3–5× schneller als klassische
+   Agenturen, ohne Qualitätsverlust.
+
+F: Für welche Unternehmen ist LYNIQ geeignet?
+A: Primär für KMU in Deutschland die digitale Lösungen mit KI-Integration
+   benötigen. Von Gastronomie bis Handwerk.
+
+F: Was passiert nach dem Projekt?
+A: Übergabe mit vollständiger Dokumentation. Optional laufende Betreuung
+   — der Kunde ist nie abhängig.
+
+## Kontakt
+- E-Mail: info@lyniqmedia.com
+- Telefon: +49 (0) 1517 5007219
+- Adresse: Alte Poststraße 17a, 26835 Holtland, Ostfriesland
+- Erstgespräch: kostenlos, 30 Minuten, kein Pitch
+- Kontaktformular: https://lyniqmedia.com/kontakt
+
+### KI-Finanzanalyse App (Eigenprojekt)
+Persönliche Finanz-App mit KI-gestützter Analyse von Ein- und Ausgaben —
+entwickelt als Eigenprojekt für den täglichen Eigengebrauch. Dashboard
+aggregiert Konten und Transaktionen, kategorisiert Ausgaben automatisch,
+zeigt Cashflow-Analyse. Gebaut mit Next.js, Supabase, Anthropic API.
+DSGVO-konform, Server in Deutschland.
+
+### Fahrschule Lead-System (Konzept/Demo)
+KI-System für Fahrschulen — adressiert zwei Engpässe: Erstanfragen über
+die Website und eingehende Anrufe während laufender Fahrstunden. Voice
+Agent nimmt Anrufe entgegen, Website-Chatbot erfasst Leads automatisch.
+Inspiriert durch echte Erfahrungen. Gebaut mit Voice AI, Chatbot, n8n.
+
+### Cabisino — Abiball-Gästeliste (live im Einsatz)
+Digitale Gästeliste und Voranmeldung für den Abiball eines Gymnasiums.
+Gäste melden sich online an, am Abend reicht der QR-Code am Einlass.
+Kein Zettelchaos, kein Stau an der Tür. In 2 Stunden entwickelt.
+Gebaut mit React, Tailwind, Vercel.
+
+### Fußbodenheizung-Website (live im Einsatz)
+Deutsche Website für einen niederländischen Fußbodenheizungs-Dienstleister
+— ausgerichtet auf Kunden im deutsch-niederländischen Grenzgebiet zwischen
+Weener, Leer und dem Emsland. Lokales SEO, deutschsprachige Anfragen.
+Gebaut mit React, Vercel.
+
+### KI-Agenten Demo (live auf lyniqmedia.com)
+Eigenprojekt und Live-Demo: Voice Agent für Telefonanfragen, WhatsApp-Bot
+für automatisierte Kommunikation, Website-Chatbot für Lead-Erfassung.
+Zeigt den praktischen Einsatz von KI-Agenten für KMU. DSGVO-konform.
+Gebaut mit Voice AI, Webhook, WhatsApp.
+
+### Gebäudereinigung MVP (Konzept/Demo)
+KI-gestützte MVP-App für Gebäudereinigungsunternehmen: Mitarbeiter
+fotografieren Räume vor Ort, die KI analysiert Verschmutzung und Raumgröße
+und erstellt automatisch einen Kostenvoranschlag. Skalierbar ohne
+Geschäftsführer-Präsenz vor Ort. Gebaut mit Next.js, Vision API, Supabase.

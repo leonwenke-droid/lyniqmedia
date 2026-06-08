@@ -1,0 +1,574 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* shadcn bridge */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Stitch brand tokens as Tailwind utilities */
+  --color-bs-teal:        var(--bs-teal);
+  --color-bs-primary-c:   var(--bs-primary-c);
+  --color-bs-primary-f:   var(--bs-primary-f);
+  --color-bs-peach:       var(--bs-peach);
+  --color-bs-yellow:      var(--bs-yellow);
+  --color-bs-cream:       var(--bs-cream);
+  --color-bs-surface-hi:  var(--bs-surface-hi);
+  --color-bs-surface-top: var(--bs-surface-top);
+  --color-bs-ink:         var(--bs-ink);
+  --color-bs-ink-v:       var(--bs-ink-v);
+  /* Backwards-compat aliases — old component class names still resolve */
+  --color-bs-pink:        var(--bs-pink);
+  --color-bs-pink-dark:   var(--bs-pink-dark);
+  --color-bs-pink-soft:   var(--bs-pink-soft);
+  --color-bs-pink-cream:  var(--bs-pink-cream);
+  --color-bs-cyan:        var(--bs-cyan);
+  --color-bs-cyan-soft:   var(--bs-cyan-soft);
+  --color-bs-cyan-cream:  var(--bs-cyan-cream);
+  --color-bs-coal:        var(--bs-coal);
+  --color-bs-paper:       var(--bs-paper);
+}
+
+:root {
+  /* ============================================================
+     BURGER STATION — STITCH DESIGN TOKENS
+     Visual system: Google Stitch "Modern American Retro Diner"
+     Fonts: Epilogue (display) + Plus Jakarta Sans (body)
+     ============================================================ */
+
+  /* --- Core Stitch Palette --- */
+  --bs-teal:        #006a62;   /* primary — heading accents, primary CTAs         */
+  --bs-primary-c:   #40e0d0;   /* primary-container — turquoise, add-btns          */
+  --bs-primary-f:   #61f9e9;   /* primary-fixed — license plate bg                 */
+  --bs-peach:       #fed4c8;   /* secondary-container — secondary CTAs, card tints */
+  --bs-yellow:      #ffe16d;   /* tertiary-fixed — badges, stickers, price tags     */
+  --bs-cream:       #fefccf;   /* surface / main background                         */
+  --bs-surface-hi:  #eceabe;   /* surface-container-high — ticker, alt sections     */
+  --bs-surface-top: #e6e5b9;   /* surface-container-highest — footer bg             */
+  --bs-ink:         #1d1d03;   /* on-surface — all borders, shadows, primary text   */
+  --bs-ink-v:       #3c4a47;   /* on-surface-variant — body copy                    */
+
+  /* --- Backwards-compat aliases (keeps existing class names working) --- */
+  --bs-pink:        #006a62;   /* was hot-pink, now teal primary                    */
+  --bs-pink-dark:   #004d47;
+  --bs-pink-soft:   #40e0d0;
+  --bs-pink-cream:  #fed4c8;   /* was rose-tint, now peach secondary-container     */
+  --bs-cyan:        #40e0d0;   /* turquoise — unchanged                             */
+  --bs-cyan-soft:   #61f9e9;
+  --bs-cyan-cream:  #eceabe;   /* was teal-cream, now surface-hi                   */
+  --bs-coal:        #1d1d03;
+  --bs-paper:       #fefccf;
+
+  /* --- Shadow scale (hard offset, zero blur, olive-black) --- */
+  --bs-shadow-sm:   4px 4px 0 var(--bs-ink);
+  --bs-shadow:      6px 6px 0 var(--bs-ink);
+  --bs-shadow-lg:   8px 8px 0 var(--bs-ink);
+  --bs-shadow-pink: 6px 6px 0 var(--bs-teal);
+  --bs-shadow-cyan: 6px 6px 0 var(--bs-primary-c);
+
+  /* --- shadcn system bridge --- */
+  --primary:                    var(--bs-teal);
+  --primary-foreground:         #ffffff;
+  --secondary:                  var(--bs-peach);
+  --secondary-foreground:       var(--bs-ink);
+  --background:                 var(--bs-cream);
+  --foreground:                 var(--bs-ink);
+  --card:                       #ffffff;
+  --card-foreground:            var(--bs-ink);
+  --popover:                    #ffffff;
+  --popover-foreground:         var(--bs-ink);
+  --muted:                      var(--bs-surface-hi);
+  --muted-foreground:           var(--bs-ink-v);
+  --accent:                     var(--bs-yellow);
+  --accent-foreground:          var(--bs-ink);
+  --destructive:                #ba1a1a;
+  --destructive-foreground:     #ffffff;
+  --border:                     var(--bs-surface-top);
+  --input:                      #ffffff;
+  --ring:                       var(--bs-teal);
+  --radius:                     0.875rem;
+  --chart-1:                    var(--bs-teal);
+  --chart-2:                    var(--bs-primary-c);
+  --chart-3:                    var(--bs-yellow);
+  --chart-4:                    var(--bs-peach);
+  --chart-5:                    var(--bs-surface-hi);
+  --sidebar:                    var(--bs-cream);
+  --sidebar-foreground:         var(--bs-ink);
+  --sidebar-primary:            var(--bs-teal);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:             var(--bs-yellow);
+  --sidebar-accent-foreground:  var(--bs-ink);
+  --sidebar-border:             var(--bs-surface-top);
+  --sidebar-ring:               var(--bs-teal);
+}
+
+/* Brand is always light — dark class is a no-op */
+.dark {
+  --background: var(--bs-cream);
+  --foreground: var(--bs-ink);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Epilogue', sans-serif; }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
+  ::selection { background: var(--bs-primary-c); color: var(--bs-ink); }
+}
+
+@layer components {
+  /* ─── Layout ─────────────────────────────────────────── */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(1.25rem + env(safe-area-inset-left));
+    padding-right: calc(1.25rem + env(safe-area-inset-right));
+  }
+  .flex { min-height: 0; min-width: 0; }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: calc(1.5rem + env(safe-area-inset-left));
+      padding-right: calc(1.5rem + env(safe-area-inset-right));
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: calc(2rem + env(safe-area-inset-left));
+      padding-right: calc(2rem + env(safe-area-inset-right));
+      max-width: 1280px;
+    }
+  }
+
+  /* ─── Typography ─────────────────────────────────────── */
+  .font-display { font-family: 'Epilogue', sans-serif; }
+  .font-body    { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .text-display {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .text-headline {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .text-subhead {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .text-label-caps {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* ─── Buttons (Stitch: rounded-full, 3px border, 6px hard shadow, press-down) ── */
+  .btn-pink {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.875rem 1.75rem;
+    border-radius: 999px;
+    border: 3px solid var(--bs-ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    background: var(--bs-teal);
+    color: #ffffff;
+    box-shadow: var(--bs-shadow);
+  }
+  .btn-pink:focus-visible { outline: 3px solid var(--bs-yellow); outline-offset: 3px; }
+  .btn-pink:hover  { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--bs-ink); }
+  .btn-pink:active { transform: translate(5px, 5px); box-shadow: none; }
+
+  .btn-cyan {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.875rem 1.75rem;
+    border-radius: 999px;
+    border: 3px solid var(--bs-ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    background: var(--bs-peach);
+    color: var(--bs-ink);
+    box-shadow: var(--bs-shadow);
+  }
+  .btn-cyan:focus-visible { outline: 3px solid var(--bs-yellow); outline-offset: 3px; }
+  .btn-cyan:hover  { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--bs-ink); }
+  .btn-cyan:active { transform: translate(5px, 5px); box-shadow: none; }
+
+  .btn-ghost-ink {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.875rem 1.75rem;
+    border-radius: 999px;
+    border: 3px solid var(--bs-ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent;
+    color: var(--bs-ink);
+    box-shadow: none;
+  }
+  .btn-ghost-ink:focus-visible { outline: 3px solid var(--bs-yellow); outline-offset: 3px; }
+  .btn-ghost-ink:hover { background: var(--bs-ink); color: white; }
+
+  .btn-base {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.875rem 1.75rem;
+    border-radius: 999px;
+    border: 3px solid var(--bs-ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-base:focus-visible { outline: 3px solid var(--bs-yellow); outline-offset: 3px; }
+
+  .btn-sm { padding: 0.6rem 1.25rem; font-size: 0.875rem; }
+
+  /* ─── Cards (Stitch: white bg, 3px border, 8px hard shadow) ─── */
+  .retro-card {
+    background: white;
+    border: 3px solid var(--bs-ink);
+    border-radius: 1.25rem;
+    box-shadow: var(--bs-shadow-lg);
+  }
+  .retro-card-pink {
+    background: var(--bs-peach);
+    border: 3px solid var(--bs-ink);
+    border-radius: 1.25rem;
+    box-shadow: var(--bs-shadow-lg);
+  }
+  .retro-card-cyan {
+    background: var(--bs-surface-hi);
+    border: 3px solid var(--bs-ink);
+    border-radius: 1.25rem;
+    box-shadow: var(--bs-shadow-lg);
+  }
+
+  /* ─── License plate (Stitch card footer detail) ──────── */
+  .license-plate {
+    background: var(--bs-primary-f);
+    border: 3px solid var(--bs-ink);
+    border-radius: 6px;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bs-ink);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+    box-shadow: var(--bs-shadow-sm);
+  }
+  .license-plate small { font-size: 0.6rem; color: var(--bs-teal); letter-spacing: 0.25em; }
+
+  /* ─── Badges ─────────────────────────────────────────── */
+  .badge-neon {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    border: 2px solid var(--bs-ink);
+    text-transform: uppercase;
+  }
+  .badge-pink-fill   { background: var(--bs-teal);     color: white; }
+  .badge-cyan-fill   { background: var(--bs-primary-c); color: var(--bs-ink); }
+  .badge-yellow-fill { background: var(--bs-yellow);   color: var(--bs-ink); }
+
+  /* ─── Patterns ───────────────────────────────────────── */
+
+  /* Teal checker — primary pattern, matches Stitch exactly */
+  .checker-teal {
+    background-color: var(--bs-cream);
+    background-image:
+      linear-gradient(45deg,  #006a62 25%, transparent 25%),
+      linear-gradient(-45deg, #006a62 25%, transparent 25%),
+      linear-gradient(45deg,  transparent 75%, #006a62 75%),
+      linear-gradient(-45deg, transparent 75%, #006a62 75%);
+    background-size: 32px 32px;
+    background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+  }
+  .checker-bg {
+    background-color: var(--bs-cream);
+    background-image:
+      linear-gradient(45deg,  #006a62 25%, transparent 25%),
+      linear-gradient(-45deg, #006a62 25%, transparent 25%),
+      linear-gradient(45deg,  transparent 75%, #006a62 75%),
+      linear-gradient(-45deg, transparent 75%, #006a62 75%);
+    background-size: 28px 28px;
+    background-position: 0 0, 0 14px, 14px -14px, -14px 0px;
+  }
+  .checker-strip {
+    height: 30px;
+    background-color: var(--bs-cream);
+    background-image:
+      linear-gradient(45deg,  #006a62 25%, transparent 25%),
+      linear-gradient(-45deg, #006a62 25%, transparent 25%),
+      linear-gradient(45deg,  transparent 75%, #006a62 75%),
+      linear-gradient(-45deg, transparent 75%, #006a62 75%);
+    background-size: 30px 30px;
+    background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+  }
+  /* Alias kept for Footer component */
+  .checker-strip-pink {
+    height: 30px;
+    background-color: var(--bs-cream);
+    background-image:
+      linear-gradient(45deg,  #006a62 25%, transparent 25%),
+      linear-gradient(-45deg, #006a62 25%, transparent 25%),
+      linear-gradient(45deg,  transparent 75%, #006a62 75%),
+      linear-gradient(-45deg, transparent 75%, #006a62 75%);
+    background-size: 30px 30px;
+    background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+  }
+  /* Teal+cream checker — used for full-section CTA banners */
+  .stripes-yellow-black {
+    background-color: var(--bs-cream);
+    background-image:
+      linear-gradient(45deg,  #006a62 25%, transparent 25%),
+      linear-gradient(-45deg, #006a62 25%, transparent 25%),
+      linear-gradient(45deg,  transparent 75%, #006a62 75%),
+      linear-gradient(-45deg, transparent 75%, #006a62 75%);
+    background-size: 32px 32px;
+    background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+  }
+  .halftone {
+    background-image: radial-gradient(circle, var(--bs-ink) 1.2px, transparent 1.2px);
+    background-size: 14px 14px;
+    opacity: 0.04;
+  }
+
+  /* ─── Neon classes — repurposed as Stitch drop-shadow style ─── */
+  .neon-text-pink {
+    color: var(--bs-teal);
+    text-shadow: 4px 4px 0px var(--bs-primary-c);
+  }
+  .neon-text-cyan { color: var(--bs-primary-c); }
+  .neon-text-yellow {
+    color: var(--bs-yellow);
+    text-shadow: 2px 2px 0px var(--bs-ink);
+  }
+  .neon-flicker {} /* intentionally empty — flicker removed */
+  .neon-box-pink { border: 3px solid var(--bs-teal);     box-shadow: 4px 4px 0 var(--bs-ink); }
+  .neon-box-cyan { border: 3px solid var(--bs-primary-c); box-shadow: 4px 4px 0 var(--bs-ink); }
+
+  /* ─── Hero — always plain cream, never gradient ─────── */
+  .hero-gradient { background: var(--bs-cream); }
+
+  /* ─── Animations ─────────────────────────────────────── */
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-track {
+    display: flex;
+    animation: ticker 36s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+  .float-anim { animation: float 4s ease-in-out infinite; }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .spin-slow { animation: spin-slow 18s linear infinite; }
+
+  @keyframes pulse-teal {
+    0%, 100% { box-shadow: var(--bs-shadow); }
+    50%       { box-shadow: var(--bs-shadow), 0 0 20px color-mix(in srgb, var(--bs-primary-c) 60%, transparent); }
+  }
+  .pulse-pink { animation: pulse-teal 2.4s ease-in-out infinite; }
+
+  /* ─── Menu tabs ──────────────────────────────────────── */
+  .menu-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .menu-tab {
+    flex-shrink: 0;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    border: 2px solid var(--bs-ink);
+    background: white;
+    color: var(--bs-ink);
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    position: relative;
+  }
+  .menu-tab:hover { background: var(--bs-yellow); }
+  .menu-tab:focus-visible { outline: 3px solid var(--bs-yellow); outline-offset: 2px; }
+  .menu-tab.active {
+    background: var(--bs-teal);
+    color: white;
+    box-shadow: var(--bs-shadow-sm);
+    transform: translate(-1px, -1px);
+  }
+
+  /* ─── Sticky mobile CTA ──────────────────────────────── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bs-cream);
+    border-top: 3px solid var(--bs-ink);
+    padding: 0.65rem;
+    padding-left: calc(0.65rem + env(safe-area-inset-left));
+    padding-right: calc(0.65rem + env(safe-area-inset-right));
+    padding-bottom: calc(0.65rem + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    z-index: 40;
+    box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.08);
+  }
+  @media (min-width: 768px) { .sticky-cta { display: none; } }
+
+  /* ─── Grain overlay ──────────────────────────────────── */
+  .grain { position: relative; }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0);
+    background-size: 5px 5px;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .border-3   { border-width: 3px; }
+  .border-t-3 { border-top-width: 3px; }
+  .border-b-3 { border-bottom-width: 3px; }
+  .border-l-3 { border-left-width: 3px; }
+  .border-r-3 { border-right-width: 3px; }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in-up { animation: fade-in-up 0.5s ease both; }
+  .stagger-1  { animation-delay: 0.05s; }
+  .stagger-2  { animation-delay: 0.10s; }
+  .stagger-3  { animation-delay: 0.15s; }
+  .stagger-4  { animation-delay: 0.20s; }
+}
+
+/* SumUp Payment Widget — transparent background inside neubrutalist card */
+.sumup-payment-container [data-sumup-id="widget__container"] {
+  background-color: transparent !important;
+}

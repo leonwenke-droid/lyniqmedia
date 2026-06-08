@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "brand": "LYNIQ Media",
+  "version": "1.0.0",
+  "sourceAsset": "docs/brand/assets/lyniq-media-logo.png",
+  "extractedFrom": "Pixel sampling of official horizontal lockup (800×500 PNG)",
+  "colors": {
+    "background": {
+      "primary": { "hex": "#081428", "rgb": [8, 20, 40] },
+      "deep": { "hex": "#050F1A", "rgb": [5, 15, 26] }
+    },
+    "neutral": {
+      "white": { "hex": "#FFFFFF", "rgb": [255, 255, 255] },
+      "whiteLogo": { "hex": "#FEFEFE", "rgb": [254, 254, 254] }
+    },
+    "gradient": {
+      "start": { "hex": "#50D0E0", "rgb": [80, 208, 224], "role": "cyan highlight" },
+      "mid": { "hex": "#1D8DD4", "rgb": [29, 141, 212], "role": "teal bridge" },
+      "end": { "hex": "#1870BC", "rgb": [24, 112, 188], "role": "royal blue" },
+      "endDeep": { "hex": "#0C5EB4", "rgb": [12, 94, 180], "role": "gradient shadow" }
+    },
+    "semantic": {
+      "textPrimary": "#FFFFFF",
+      "textOnDark": "#FFFFFF",
+      "textAccentGradient": "linear-gradient(90deg, #50D0E0 0%, #1870BC 100%)",
+      "surfaceDefault": "#081428",
+      "surfaceElevated": "#0F1D32",
+      "mutedOnDark": "rgba(255, 255, 255, 0.55)"
+    }
+  },
+  "gradients": {
+    "brandPrimary": {
+      "type": "linear",
+      "angleDeg": 135,
+      "css": "linear-gradient(135deg, #50D0E0 0%, #1870BC 100%)",
+      "stops": [
+        { "color": "#50D0E0", "position": "0%" },
+        { "color": "#1870BC", "position": "100%" }
+      ],
+      "usage": ["logomark", "MEDIA logotype", "CTAs", "accent borders"]
+    },
+    "brandHorizontal": {
+      "type": "linear",
+      "angleDeg": 90,
+      "css": "linear-gradient(90deg, #50D0E0 0%, #3070E0 100%)",
+      "usage": ["inline text gradient on MEDIA wordmark"]
+    }
+  },
+  "typography": {
+    "logotype": {
+      "line1": { "text": "LYNIQ", "case": "uppercase", "weight": 700, "color": "#FFFFFF" },
+      "line2": { "text": "MEDIA", "case": "uppercase", "weight": 500, "fill": "brandPrimary gradient" }
+    },
+    "webRecommendation": {
+      "display": "Montserrat, Poppins, or geometric sans — bold uppercase for headlines",
+      "body": "Inter or similar neutral sans",
+      "note": "Logo uses custom geometric sans; site currently uses Bebas Neue + Inter — align weights, not necessarily Bebas for logo recreation"
+    }
+  },
+  "logo": {
+    "layout": "horizontal lockup",
+    "components": ["logomark (rounded diamond + interlocking strokes)", "logotype (LYNIQ + MEDIA)"],
+    "clearSpace": "≥ height of one logomark stroke between mark and type",
+    "minWidthPx": 160,
+    "backgroundRequired": "dark (#081428) for full-color lockup"
+  },
+  "tailwindMapping": {
+    "note": "Current globals.css uses older tokens — prefer values below when matching logo",
+    "proposed": {
+      "--color-lyniq-bg": "#081428",
+      "--color-lyniq-bg-deep": "#050F1A",
+      "--color-lyniq-gradient-start": "#50D0E0",
+      "--color-lyniq-gradient-end": "#1870BC",
+      "--color-lyniq-text": "#FFFFFF",
+      "--color-lyniq-watermark": "#0F1D32"
+    }
+  }
+}
