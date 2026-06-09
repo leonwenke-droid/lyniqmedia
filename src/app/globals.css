@@ -48,7 +48,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
 
@@ -1976,13 +1976,18 @@ footer {
   }
 }
 
+.project-featured-stack {
+  position: relative;
+  isolation: isolate;
+}
+
 @media (max-width: 375px) {
   html,
   body,
   #main-content {
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   #hero {

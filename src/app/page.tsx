@@ -76,9 +76,7 @@ export default function Home() {
         <Reveal delay={0.1}>
           <Process />
         </Reveal>
-        <Reveal delay={0}>
-          <Projects />
-        </Reveal>
+        <Projects />
         <Reveal delay={0.05}>
           <Pricing />
         </Reveal>

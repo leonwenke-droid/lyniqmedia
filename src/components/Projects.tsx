@@ -1,48 +1,112 @@
 "use client";
 
-import {
-  FussbodenKontaktCardShot,
-  FussbodenLandingCardShot,
-  FussbodenReferenzenCardShot,
-} from "@/components/mockups/FussbodenheizungShots";
-import {
-  LernInformatikCardShot,
-  LernPolitikCardShot,
-  PhysikDashboardCardShot,
-} from "@/components/mockups/LernMockups";
-import {
-  FinanzAnalyticsCardShot,
-  FinanzDashboardCardShot,
-  FinanzTransactionsCardShot,
-} from "@/components/mockups/FinanzMockups";
-import {
-  CabisinoCompanionsShot,
-  CabisinoLandingShot,
-  CabisinoTicketShot,
-} from "@/components/mockups/CabisinoShots";
-import {
-  BurgerstationAboutShot,
-  BurgerstationLandingShot,
-  BurgerstationMenuShot,
-} from "@/components/mockups/BurgerstationShots";
-import {
-  OrgFlowAufgabenCardShot,
-  OrgFlowKombiCardShot,
-  OrgFlowSchichtenCardShot,
-} from "@/components/mockups/OrgFlowMockups";
-import {
-  FahrschuleDashboardCardShot,
-  FahrschuleLandingCardShot,
-  FahrschuleVoiceAgentCardShot,
-} from "@/components/mockups/FahrschuleShots";
-import { GebaeudereinigungKiAnalyseCardShot } from "@/components/mockups/GebaeudereinigungShots";
-import { AiAgentenDashboardCardShot } from "@/components/mockups/AiAgentenShots";
 import { motion, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { ComponentType, CSSProperties } from "react";
 import { useRef } from "react";
+
+function mockupShot<
+  M extends Record<string, ComponentType>,
+  K extends keyof M & string,
+>(loader: () => Promise<M>, name: K) {
+  return dynamic(() => loader().then((mod) => mod[name]), { ssr: false });
+}
+
+const OrgFlowAufgabenCardShot = mockupShot(
+  () => import("@/components/mockups/OrgFlowMockups"),
+  "OrgFlowAufgabenCardShot",
+);
+const OrgFlowSchichtenCardShot = mockupShot(
+  () => import("@/components/mockups/OrgFlowMockups"),
+  "OrgFlowSchichtenCardShot",
+);
+const OrgFlowKombiCardShot = mockupShot(
+  () => import("@/components/mockups/OrgFlowMockups"),
+  "OrgFlowKombiCardShot",
+);
+const BurgerstationMenuShot = mockupShot(
+  () => import("@/components/mockups/BurgerstationShots"),
+  "BurgerstationMenuShot",
+);
+const BurgerstationAboutShot = mockupShot(
+  () => import("@/components/mockups/BurgerstationShots"),
+  "BurgerstationAboutShot",
+);
+const BurgerstationLandingShot = mockupShot(
+  () => import("@/components/mockups/BurgerstationShots"),
+  "BurgerstationLandingShot",
+);
+const CabisinoCompanionsShot = mockupShot(
+  () => import("@/components/mockups/CabisinoShots"),
+  "CabisinoCompanionsShot",
+);
+const CabisinoTicketShot = mockupShot(
+  () => import("@/components/mockups/CabisinoShots"),
+  "CabisinoTicketShot",
+);
+const CabisinoLandingShot = mockupShot(
+  () => import("@/components/mockups/CabisinoShots"),
+  "CabisinoLandingShot",
+);
+const FinanzTransactionsCardShot = mockupShot(
+  () => import("@/components/mockups/FinanzMockups"),
+  "FinanzTransactionsCardShot",
+);
+const FinanzAnalyticsCardShot = mockupShot(
+  () => import("@/components/mockups/FinanzMockups"),
+  "FinanzAnalyticsCardShot",
+);
+const FinanzDashboardCardShot = mockupShot(
+  () => import("@/components/mockups/FinanzMockups"),
+  "FinanzDashboardCardShot",
+);
+const LernInformatikCardShot = mockupShot(
+  () => import("@/components/mockups/LernMockups"),
+  "LernInformatikCardShot",
+);
+const LernPolitikCardShot = mockupShot(
+  () => import("@/components/mockups/LernMockups"),
+  "LernPolitikCardShot",
+);
+const PhysikDashboardCardShot = mockupShot(
+  () => import("@/components/mockups/LernMockups"),
+  "PhysikDashboardCardShot",
+);
+const FussbodenReferenzenCardShot = mockupShot(
+  () => import("@/components/mockups/FussbodenheizungShots"),
+  "FussbodenReferenzenCardShot",
+);
+const FussbodenKontaktCardShot = mockupShot(
+  () => import("@/components/mockups/FussbodenheizungShots"),
+  "FussbodenKontaktCardShot",
+);
+const FussbodenLandingCardShot = mockupShot(
+  () => import("@/components/mockups/FussbodenheizungShots"),
+  "FussbodenLandingCardShot",
+);
+const AiAgentenDashboardCardShot = mockupShot(
+  () => import("@/components/mockups/AiAgentenShots"),
+  "AiAgentenDashboardCardShot",
+);
+const GebaeudereinigungKiAnalyseCardShot = mockupShot(
+  () => import("@/components/mockups/GebaeudereinigungShots"),
+  "GebaeudereinigungKiAnalyseCardShot",
+);
+const FahrschuleVoiceAgentCardShot = mockupShot(
+  () => import("@/components/mockups/FahrschuleShots"),
+  "FahrschuleVoiceAgentCardShot",
+);
+const FahrschuleLandingCardShot = mockupShot(
+  () => import("@/components/mockups/FahrschuleShots"),
+  "FahrschuleLandingCardShot",
+);
+const FahrschuleDashboardCardShot = mockupShot(
+  () => import("@/components/mockups/FahrschuleShots"),
+  "FahrschuleDashboardCardShot",
+);
 
 function FloatingShape({
   width,

@@ -4,8 +4,6 @@ import { GoogleAnalytics as NextGA } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 import { getStoredConsent } from "@/lib/consent";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
-
 export default function GoogleAnalytics() {
   const [consent, setConsent] = useState(false);
 
@@ -20,7 +18,7 @@ export default function GoogleAnalytics() {
     return () => window.removeEventListener("consent_accepted", handler);
   }, []);
 
-  if (!consent || !GA_ID) return null;
+  if (!consent) return null;
 
-  return <NextGA gaId={GA_ID} />;
+  return <NextGA gaId={process.env.NEXT_PUBLIC_GA_ID ?? ""} />;
 }
