@@ -78,7 +78,7 @@ const ColorOrb: React.FC<OrbProps> = ({
 
 const FORM_WIDTH = 360;
 const DOCK_HEIGHT = 44;
-const DOCK_WIDTH = 158;
+const DOCK_WIDTH = 44;
 const MOBILE_BREAKPOINT = 767;
 const DESKTOP_COMPACT_HEIGHT = 168;
 const DESKTOP_CHAT_HEIGHT = 360;
@@ -108,6 +108,7 @@ function useIsMobile() {
 export type MorphPanelProps = {
   onAsk?: (message: string) => Promise<string>;
   dockLabel?: string;
+  dockIconOnly?: boolean;
   title?: string;
   placeholder?: string;
   submitLabel?: string;
@@ -116,6 +117,7 @@ export type MorphPanelProps = {
 export function MorphPanel({
   onAsk,
   dockLabel = "Frag LYNIQ",
+  dockIconOnly = true,
   title = "KI Input",
   placeholder = "Frag mich etwas…",
   submitLabel = "Frag LYNIQ",
@@ -315,12 +317,15 @@ export function MorphPanel({
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.1 }}
                 onClick={triggerOpen}
-                className="flex h-full w-full cursor-pointer items-center justify-center gap-2.5 px-3 select-none"
+                aria-label={dockLabel}
+                className="flex h-full w-full cursor-pointer items-center justify-center select-none"
               >
-                <ColorOrb dimension="24px" />
-                <span className="font-[family-name:var(--font-sora)] text-[14px] font-semibold whitespace-nowrap text-[#f5f9ff]">
-                  {dockLabel}
-                </span>
+                <ColorOrb dimension={dockIconOnly ? "36px" : "24px"} />
+                {!dockIconOnly ? (
+                  <span className="ml-2.5 font-[family-name:var(--font-sora)] text-[14px] font-semibold whitespace-nowrap text-[#f5f9ff]">
+                    {dockLabel}
+                  </span>
+                ) : null}
               </motion.button>
             ) : (
               <motion.form

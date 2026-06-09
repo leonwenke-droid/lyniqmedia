@@ -754,7 +754,9 @@ main {
   }
 
   .hero-ghost {
-    font-size: clamp(120px, 40vw, 200px);
+    font-size: clamp(68px, 21vw, 128px);
+    letter-spacing: -0.1em;
+    white-space: nowrap;
     color: rgba(245, 249, 255, 0.02);
   }
 
@@ -1819,6 +1821,22 @@ footer {
   isolation: isolate;
 }
 
+@media (max-width: 767px) {
+  .website-bot-root {
+    right: auto;
+    left: 0;
+    bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .website-bot-root > div {
+    padding: 0.75rem !important;
+  }
+
+  .bottom-cta-root {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @keyframes vcardSpin {
   from {
     transform: rotate(0deg);
@@ -2024,7 +2042,8 @@ footer {
   }
 
   .hero-ghost {
-    font-size: clamp(80px, 28vw, 140px);
+    font-size: clamp(60px, 19vw, 110px);
+    letter-spacing: -0.12em;
   }
 }
 

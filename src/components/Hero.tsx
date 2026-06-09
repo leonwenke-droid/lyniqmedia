@@ -56,9 +56,7 @@ export default function Hero() {
   const [showSpline, setShowSpline] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia(
-      "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
-    );
+    const mq = window.matchMedia("(prefers-reduced-motion: no-preference)");
     setShowSpline(mq.matches);
     const handler = (e: MediaQueryListEvent) => setShowSpline(e.matches);
     mq.addEventListener("change", handler);

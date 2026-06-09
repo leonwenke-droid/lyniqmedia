@@ -20,11 +20,11 @@ export default function WebsiteBot() {
 
   return (
     <div
-      className="website-bot-root pointer-events-none fixed right-0 bottom-0 z-[60]"
+      className="website-bot-root pointer-events-none fixed right-0 bottom-0 z-[55]"
       aria-label="LYNIQ Website-Assistent"
     >
-      <div className="pointer-events-auto p-5 max-sm:p-4 max-sm:has-[form]:p-0">
-        <MorphPanel onAsk={askWebsiteBot} />
+      <div className="pointer-events-auto p-5 max-sm:has-[form]:p-0">
+        <MorphPanel onAsk={askWebsiteBot} dockIconOnly />
       </div>
     </div>
   );
