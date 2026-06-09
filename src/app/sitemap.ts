@@ -7,6 +7,13 @@ import {
 import { PROJECT_SLUGS } from "@/lib/project-slugs";
 import { MetadataRoute } from "next";
 
+const SITE_ORIGIN = "https://lyniqmedia.com";
+
+/** Absolute sitemap URL — always a single expression, trimmed, no stray whitespace. */
+function loc(path = ""): string {
+  return `${SITE_ORIGIN}${path ? `/${path.replace(/^\/+/, "")}` : ""}`.trim();
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = getAllPosts();
   const categories = getAllCategories();
@@ -14,79 +21,79 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://lyniqmedia.com",
+      url: loc(),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: "https://lyniqmedia.com/kontakt",
+      url: loc("kontakt"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://lyniqmedia.com/ueber-mich",
+      url: loc("ueber-mich"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://lyniqmedia.com/gastronomie",
+      url: loc("gastronomie"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://lyniqmedia.com/visitenkarte",
+      url: loc("visitenkarte"),
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.4,
     },
     {
-      url: "https://lyniqmedia.com/impressum",
+      url: loc("impressum"),
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.2,
     },
     {
-      url: "https://lyniqmedia.com/datenschutz",
+      url: loc("datenschutz"),
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.2,
     },
     {
-      url: "https://lyniqmedia.com/agb",
+      url: loc("agb"),
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.1,
     },
     ...PROJECT_SLUGS.map((slug) => ({
-      url: `https://lyniqmedia.com/projekte/${slug}`,
+      url: loc(`projekte/${slug}`),
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     {
-      url: "https://lyniqmedia.com/blog",
+      url: loc("blog"),
       lastModified: blogPosts[0] ? new Date(blogPosts[0].date) : new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     ...blogPosts.map((post) => ({
-      url: `https://lyniqmedia.com/blog/${post.slug}`,
+      url: loc(`blog/${post.slug}`),
       lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
     ...categories.map((cat) => ({
-      url: `https://lyniqmedia.com/blog/kategorie/${toSlug(cat)}`,
+      url: loc(`blog/kategorie/${toSlug(cat)}`),
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.5,
     })),
     ...tags.map((tag) => ({
-      url: `https://lyniqmedia.com/blog/tag/${toSlug(tag)}`,
+      url: loc(`blog/tag/${toSlug(tag)}`),
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.4,
