@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import NoSSRWrapper from "@/components/NoSSRWrapper";
 import { useRouter } from "next/navigation";
 import type { ComponentType, CSSProperties } from "react";
 import { useRef } from "react";
@@ -346,6 +347,20 @@ const STACK_SCALE_STEP = 0.025;
 const STACK_TOP_BASE_VH = 12;
 const STACK_TOP_STEP_PX = 56;
 
+function MockupFallback() {
+  return (
+    <div
+      aria-hidden={true}
+      style={{
+        width: "100%",
+        height: "100%",
+        borderRadius: 12,
+        background: "rgba(255,255,255,0.02)",
+      }}
+    />
+  );
+}
+
 function useCardScale(
   index: number,
   progress: ReturnType<typeof useScroll>["scrollYProgress"],
@@ -361,7 +376,13 @@ function renderScreenshotSlot(
   src: string | null,
   options?: { mockup?: boolean; alt?: string; priority?: boolean },
 ) {
-  if (Mockup) return <Mockup />;
+  if (Mockup) {
+    return (
+      <NoSSRWrapper fallback={<MockupFallback />}>
+        <Mockup />
+      </NoSSRWrapper>
+    );
+  }
   if (src) {
     const alt = options?.alt ?? "Projekt-Screenshot von LYNIQ";
     if (options?.mockup) {
@@ -806,7 +827,9 @@ function GridCard({ project }: { project: Project }) {
 
       <div className="projects-grid-compact__media">
         {MockupCol2 ? (
-          <MockupCol2 />
+          <NoSSRWrapper fallback={<MockupFallback />}>
+            <MockupCol2 />
+          </NoSSRWrapper>
         ) : (
           <span
             style={{

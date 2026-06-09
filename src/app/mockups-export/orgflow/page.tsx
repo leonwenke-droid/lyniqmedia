@@ -6,6 +6,7 @@ import {
   OrgFlowMitgliederMockup,
   OrgFlowSchichtenMockup,
 } from "@/components/mockups/OrgFlowMockups";
+import NoSSRWrapper from "@/components/NoSSRWrapper";
 
 const EXPORTS = [
   { id: "dashboard", Mockup: OrgFlowDashboardMockup, height: 580 },
@@ -37,7 +38,21 @@ export default function OrgFlowMockupExportPage() {
             overflow: "hidden",
           }}
         >
-          <Mockup bare />
+          <NoSSRWrapper
+            fallback={
+              <div
+                aria-hidden={true}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 12,
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              />
+            }
+          >
+            <Mockup bare />
+          </NoSSRWrapper>
         </div>
       ))}
     </div>
