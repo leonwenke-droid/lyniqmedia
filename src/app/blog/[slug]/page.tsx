@@ -9,6 +9,7 @@ import {
   toSlug,
 } from "@/lib/blog";
 import { MdxBody } from "@/lib/mdx-render";
+import { LINKEDIN_URL } from "@/lib/social-links";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -64,6 +65,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     author: {
       "@type": "Person",
       name: "Leon Wenke",
+      url: LINKEDIN_URL,
+      sameAs: [LINKEDIN_URL],
     },
     publisher: {
       "@type": "Organization",

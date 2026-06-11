@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import HomeAnchorLink from "@/components/HomeAnchorLink";
-import Link from "next/link";
 import PageShell from "@/components/PageShell";
+import { LINKEDIN_URL } from "@/lib/social-links";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Über mich — Leon Wenke",
@@ -31,6 +32,7 @@ const jsonLd = {
   email: "info@lyniqmedia.com",
   telephone: "+4915175007219",
   url: "https://lyniqmedia.com",
+  sameAs: [LINKEDIN_URL],
   knowsAbout: [
     "Künstliche Intelligenz",
     "Softwareentwicklung",
@@ -301,6 +303,22 @@ export default function UeberMich() {
           >
             Digitale Visitenkarte
           </Link>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              border: "0.5px solid rgba(245,249,255,0.15)",
+              color: "rgba(245,249,255,0.6)",
+              fontFamily: "Sora, sans-serif",
+              fontSize: "13px",
+              padding: "14px 32px",
+              borderRadius: "2px",
+              textDecoration: "none",
+            }}
+          >
+            LinkedIn →
+          </a>
         </div>
       </main>
     </PageShell>

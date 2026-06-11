@@ -1,6 +1,7 @@
 "use client";
 
 import SocialLinks from "@/components/SocialLinks";
+import { trackGaEvent } from "@/lib/analytics";
 import { useEffect, useState } from "react";
 
 type FormState = "idle" | "loading" | "success" | "error";
@@ -153,6 +154,10 @@ export default function Contact() {
 
       const data = (await res.json()) as { success?: boolean };
       if (data.success) {
+        trackGaEvent("contact_form_submit", {
+          event_category: "engagement",
+          event_label: selectedTypes.join(", ") || "keine Auswahl",
+        });
         setStatus("success");
         setForm({ name: "", email: "", message: "" });
         setSelectedTypes([]);

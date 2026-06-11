@@ -2,6 +2,7 @@
 
 import LyniqMark from "./LyniqMark";
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
+import { trackGaEvent } from "@/lib/analytics";
 import { navigateToHomeSection } from "@/lib/scroll-to-section";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -41,6 +42,14 @@ export default function Navigation() {
   const goToSection = (id: string) => {
     navigateToHomeSection(id, pathname, router);
     closeMenu();
+  };
+
+  const handleProjektStarten = () => {
+    trackGaEvent("cta_click", {
+      event_category: "engagement",
+      event_label: "nav_projekt_starten",
+    });
+    goToSection("kontakt");
   };
 
   return (
@@ -109,7 +118,7 @@ export default function Navigation() {
 
         <button
           type="button"
-          onClick={() => goToSection("kontakt")}
+          onClick={handleProjektStarten}
           className="nav-cta hidden md:inline-flex"
           style={{ background: "none", border: "none", cursor: "pointer" }}
         >
@@ -160,7 +169,7 @@ export default function Navigation() {
           )}
           <button
             type="button"
-            onClick={() => goToSection("kontakt")}
+            onClick={handleProjektStarten}
             className="nav-mobile-cta"
             style={{ background: "none", border: "none", cursor: "pointer" }}
           >

@@ -1,5 +1,7 @@
 "use client";
 
+import { trackGaEvent } from "@/lib/analytics";
+import { LINKEDIN_URL } from "@/lib/social-links";
 import { UserPlus } from "lucide-react";
 import { useState } from "react";
 
@@ -17,6 +19,7 @@ export default function SaveContactButton() {
       "TEL;TYPE=CELL:+4915175007219",
       "EMAIL:info@lyniqmedia.com",
       "URL:https://lyniqmedia.com",
+      `X-SOCIALPROFILE;type=linkedin:${LINKEDIN_URL}`,
       "ADR;TYPE=WORK:;;Alte Poststraße 17a;Holtland;;26835;DE",
       "NOTE:KI-Software & digitale Produkte für den Mittelstand. MVP in 1 Woche.",
       "END:VCARD",
@@ -28,6 +31,10 @@ export default function SaveContactButton() {
     a.download = "Leon Wenke.vcf";
     a.click();
     URL.revokeObjectURL(url);
+    trackGaEvent("vcard_save", {
+      event_category: "engagement",
+      event_label: "visitenkarte",
+    });
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
   }

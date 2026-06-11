@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, JetBrains_Mono, Sora } from "next/font/google";
+import { LINKEDIN_URL } from "@/lib/social-links";
 import CookieBanner from "@/components/CookieBanner";
 import GlobalBackground from "@/components/GlobalBackground";
 import SkipToMain from "@/components/SkipToMain";
@@ -121,6 +122,8 @@ const jsonLd = {
         "@type": "Person",
         name: "Leon Wenke",
         jobTitle: "Gründer & KI-Softwareentwickler",
+        url: LINKEDIN_URL,
+        sameAs: [LINKEDIN_URL],
       },
       address: {
         "@type": "PostalAddress",

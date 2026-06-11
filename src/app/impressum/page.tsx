@@ -1,5 +1,6 @@
 import LegalLayout, { LegalParagraphs } from "@/components/LegalLayout";
 import PageShell from "@/components/PageShell";
+import { LINKEDIN_URL } from "@/lib/social-links";
 
 export const metadata = {
   title: "Impressum",
@@ -28,13 +29,26 @@ const sections = [
     id: "kontakt",
     title: "Kontakt",
     content: (
-      <LegalParagraphs
-        content={[
-          "Telefon: +49 (0) 1517 5007219",
-          "E-Mail: info@lyniqmedia.com",
-          "Web: www.lyniqmedia.com",
-        ]}
-      />
+      <>
+        <LegalParagraphs
+          content={[
+            "Telefon: +49 (0) 1517 5007219",
+            "E-Mail: info@lyniqmedia.com",
+            "Web: www.lyniqmedia.com",
+          ]}
+        />
+        <p style={{ margin: 0 }}>
+          LinkedIn:{" "}
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#00c2cb", textDecoration: "none" }}
+          >
+            linkedin.com/in/leon-wenke
+          </a>
+        </p>
+      </>
     ),
   },
   {

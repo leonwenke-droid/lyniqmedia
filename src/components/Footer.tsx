@@ -2,6 +2,7 @@
 
 import LyniqMark from "@/components/LyniqMark";
 import { CONSENT_KEY } from "@/lib/consent";
+import { LINKEDIN_URL } from "@/lib/social-links";
 import {
   contactHref,
   navigateToContact,
@@ -223,18 +224,34 @@ export default function Footer() {
             KI-Software & digitale Produkte für den Mittelstand. MVP in einer
             Woche. DSGVO-konform.
           </p>
-          <a
-            href="mailto:info@lyniqmedia.com"
-            style={{
-              fontFamily: "JetBrains Mono, monospace",
-              fontSize: "10px",
-              letterSpacing: "1px",
-              color: "#00c2cb",
-              textDecoration: "none",
-            }}
-          >
-            info@lyniqmedia.com
-          </a>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <a
+              href="mailto:info@lyniqmedia.com"
+              style={{
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "10px",
+                letterSpacing: "1px",
+                color: "#00c2cb",
+                textDecoration: "none",
+              }}
+            >
+              info@lyniqmedia.com
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "10px",
+                letterSpacing: "1px",
+                color: "rgba(245,249,255,0.45)",
+                textDecoration: "none",
+              }}
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
 
         {menuItems.map((section) => (

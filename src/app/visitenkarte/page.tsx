@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SaveContactButton from "@/components/visitenkarte/SaveContactButton";
+import { LINKEDIN_URL } from "@/lib/social-links";
 import {
   ChevronRight,
   Clock,
@@ -89,7 +90,12 @@ const quickLinks = [
     comingSoon: false,
   },
   { label: "ANRUFEN", href: "tel:+4915175007219", external: false, comingSoon: false },
-  { label: "LINKEDIN", href: null, external: false, comingSoon: true },
+  {
+    label: "LINKEDIN",
+    href: LINKEDIN_URL,
+    external: true,
+    comingSoon: false,
+  },
   { label: "GITHUB", href: null, external: false, comingSoon: true },
 ] as const;
 
